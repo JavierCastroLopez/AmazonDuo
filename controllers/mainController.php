@@ -7,6 +7,10 @@ require_once 'models/Products.php';
 require_once 'models/Cart.php';
 require_once 'models/CartProducts.php';
 
+require_once 'repositories/UserRepository.php';
+require_once 'repositories/ProductsRepository.php';
+require_once 'repositories/CartRepository.php';
+require_once 'repositories/CartProductsRepository.php';
 global $db;
 session_start();
 
