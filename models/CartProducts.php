@@ -3,12 +3,12 @@ class CartProduct {
     private int $id;
     public int $cart_id;
     public int $product_id;
-    public int $cantidad;
+    public int $quantity;
 
-    public function __construct(int $cart_id, int $product_id, int $cantidad) {
+    public function __construct(int $cart_id, int $product_id, int $quantity) {
         $this->cart_id = $cart_id;
         $this->product_id = $product_id;
-        $this->cantidad = $cantidad;
+        $this->quantity = $quantity;
     }
 
     public function getCartId(): int {
@@ -19,7 +19,7 @@ class CartProduct {
         return $this->product_id;
     }
 
-    public function getCantidad(): int {
-        return $this->cantidad;
+    public function getQuantity(): int {
+        return $this->quantity;
     }
 }

@@ -53,7 +53,7 @@ if (isset($_GET['register']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 
 // --- Procesar login (POST) ---
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['password']) && !isset($_GET['publish']) && !isset($_GET['comment'])){
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['password'])){
     $username = $db->real_escape_string($_POST['username']);
     $password = md5($_POST['password']);
     $q = "SELECT id, username FROM users WHERE username = '$username' AND password = '$password'";

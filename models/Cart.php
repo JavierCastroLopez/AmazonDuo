@@ -2,12 +2,12 @@
 class Cart {
     private int $id;
     public int $user_id;
-    public $fecha_compra;
+    public $date;
 
-    public function __construct(int $id, int $user_id, $fecha_compra) {
+    public function __construct(int $id, int $user_id, $date) {
         $this->id = $id;
         $this->user_id = $user_id;
-        $this->fecha_compra = $fecha_compra;
+        $this->date = $date;
     }
 
     public function getId(): int {
@@ -18,8 +18,8 @@ class Cart {
         return $this->user_id;
     }
     
-    public function getFechaCompra(): DateTime {
-        return $this->fecha_compra;
+    public function getDate(): DateTime {
+        return $this->date;
     }
 }
 ?>
