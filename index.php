@@ -14,6 +14,8 @@ if ($db->connect_error) {
 }
 $db->set_charset("utf8mb4");
 
+require_once "db.php";
 require_once "controllers/mainController.php";
+
 
 ?>
