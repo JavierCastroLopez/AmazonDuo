@@ -7,7 +7,6 @@ require_once '../models/Products.php';
 require_once '../models/Cart.php';
 require_once '../models/CartProducts.php';
 
-global $db;
 session_start();
 
 // --- Cerrar sesión ---
