@@ -2,9 +2,9 @@
 class Cart {
     private int $id;
     public int $user_id;
-    public DateTime $fecha_compra;
+    public $fecha_compra;
 
-    public function __construct(int $id, int $user_id, DateTime $fecha_compra) {
+    public function __construct(int $id, int $user_id, $fecha_compra) {
         $this->id = $id;
         $this->user_id = $user_id;
         $this->fecha_compra = $fecha_compra;
