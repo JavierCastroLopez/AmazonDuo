@@ -2,10 +2,10 @@
 //PRODUCTOS
 //METODOS: verProductos, verCarrito, agregarCarrito, eliminarCarrito, comprarCarrito
 
-require_once '../models/User.php';
-require_once '../models/Products.php';
-require_once '../models/Cart.php';
-require_once '../models/CartProducts.php';
+require_once 'models/User.php';
+require_once 'models/Products.php';
+require_once 'models/Cart.php';
+require_once 'models/CartProducts.php';
 
 global $db;
 session_start();
@@ -32,11 +32,11 @@ if (isset($_GET['register']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
         $password = md5($_POST['password']);
         
         // Comprobar si el usuario ya existe
-        $check = $db->query("SELECT id FROM users WHERE nombre = '$username'");
+        $check = $db->query("SELECT id FROM users WHERE username = '$username'");
         if ($check && $check->num_rows > 0) {
             $_SESSION['info'] = "El usuario ya existe";
         } else {
-            $q = "INSERT INTO users (nombre, password) VALUES ('$username', '$password')";
+            $q = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
             $result = $db->query($q);
             if ($result) {
                 // Auto-login tras registro
@@ -53,13 +53,13 @@ if (isset($_GET['register']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 
 // --- Procesar login (POST) ---
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['password']) && !isset($_GET['publish']) && !isset($_GET['comment'])){
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['password'])){
     $username = $db->real_escape_string($_POST['username']);
     $password = md5($_POST['password']);
-    $q = "SELECT id, nombre FROM users WHERE nombre = '$username' AND password = '$password'";
+    $q = "SELECT id, username FROM users WHERE username = '$username' AND password = '$password'";
     $result = $db->query($q);
     if ($result && $row = $result->fetch_assoc()) {
-        $_SESSION['user'] = new User((int)$row['id'], $row['nombre']);
+        $_SESSION['user'] = new User((int)$row['id'], $row['username']);
         $_SESSION['info'] = "Sesión iniciada con éxito";
     } else {
         $_SESSION['info'] = "Usuario o contraseña incorrectos";

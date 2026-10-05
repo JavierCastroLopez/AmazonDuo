@@ -7,6 +7,9 @@ foreach ($env as $key => $value) {
 
 
 require_once "db.php";
+$db = db::connect();
+
 require_once "controllers/mainController.php";
+
 
 ?>
