@@ -1,0 +1,3 @@
+<?php
+//PROYECTO PARA UNA TIENDA ONLINE
+?>
