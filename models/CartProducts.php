@@ -1,6 +1,5 @@
 <?php   
 class CartProduct {
-    private int $id;
     public int $cart_id;
     public int $product_id;
     public int $quantity;
