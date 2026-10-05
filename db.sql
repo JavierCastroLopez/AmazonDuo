@@ -1,4 +1,4 @@
-CREATE DATABASE amazonduo;
+CREATE DATABASE IF NOT EXISTS amazonduo;
 USE amazonduo;
 
 -- =========================
@@ -66,3 +66,46 @@ CREATE TABLE cart_products (
     CONSTRAINT chk_cart_products_quantity
         CHECK (quantity > 0)
 );
+
+-- =========================
+-- DATOS DE PRUEBA
+-- =========================
+
+-- Usuarios (contraseña: 1234 para todos)
+INSERT INTO users (username, password) VALUES
+('javier', '81dc9bdb52d04dc20036dbd8313ed055'),
+('alejandro', '81dc9bdb52d04dc20036dbd8313ed055'),
+('nerea', '81dc9bdb52d04dc20036dbd8313ed055');
+
+-- Productos
+INSERT INTO products (name, price, stock) VALUES
+('Portatil HP Pavilion 15', 649.99, 25),
+('Raton Logitech MX Master 3', 89.99, 50),
+('Teclado Mecanico Corsair K70', 129.99, 30),
+('Monitor Samsung 27" 4K', 349.99, 15),
+('Auriculares Sony WH-1000XM5', 299.99, 40),
+('Webcam Logitech C920', 69.99, 60),
+('Disco SSD Samsung 1TB', 109.99, 35),
+('Tablet Samsung Galaxy Tab S9', 449.99, 20),
+('Cargador USB-C 65W', 29.99, 100),
+('Mochila para Portatil', 39.99, 45);
+
+-- Carritos
+INSERT INTO carts (date, user_id) VALUES
+('2026-10-01 10:30:00', 1),
+('2026-10-02 14:15:00', 2),
+('2026-10-03 09:45:00', 1),
+('2026-10-04 18:00:00', 3);
+
+-- Productos en carritos
+INSERT INTO cart_products (cart_id, product_id, quantity) VALUES
+(1, 1, 1),
+(1, 2, 2),
+(1, 9, 1),
+(2, 5, 1),
+(2, 3, 1),
+(3, 4, 1),
+(3, 7, 2),
+(4, 8, 1),
+(4, 6, 1),
+(4, 10, 3);

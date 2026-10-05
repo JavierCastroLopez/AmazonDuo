@@ -8,7 +8,7 @@ class UserRepository {
         $result = $db->query($query);
 
         if ($result && $row = $result->fetch_assoc()) {
-            return new User((int)$row['id'], $row['nombre']);
+            return new User((int)$row['id'], $row['username']);
         } else {
             return null;
         }
